@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Octopus.Views;
 using Rhino.UI;
 
 namespace Octopus
@@ -31,7 +32,8 @@ namespace Octopus
 
         protected override void ObjectPropertiesPages(List<ObjectPropertiesPage> pages)
         {
-            pages.Add(new Views.ObjectPropertiesPage());
+            pages.Add(new SphereObjectPropertiesPage());
+            pages.Add(new RectangleObjectPropertiesPage());
         }
     }
 }

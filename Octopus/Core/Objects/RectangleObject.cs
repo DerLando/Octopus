@@ -10,17 +10,16 @@ using Point = Rhino.Geometry.Point;
 
 namespace Octopus.Core.Objects
 {
-    public class SphereObject : ObjectBase<SphereData>
+    public class RectangleObject : ObjectBase<RectangleData>
     {
+        public RectangleObject() { }
 
-        public SphereObject() { }
-
-        public SphereObject(SphereData data, Point point) : base(data, point) { }
+        public RectangleObject(RectangleData data, Point point) : base(data, point) { }
 
         protected override void OnDraw(DrawEventArgs e)
         {
             var data = Data;
-            e.Display.DrawSphere(data.Sphere, Color.Red);
+            e.Display.DrawCurve(data.Rectangle.ToNurbsCurve(), Color.Red);
             base.OnDraw(e);
         }
     }

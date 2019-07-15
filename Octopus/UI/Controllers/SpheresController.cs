@@ -9,6 +9,7 @@ using Rhino.DocObjects;
 
 namespace Octopus.UI.Controllers
 {
+    // TODO: Extract SuperClass
     public static class SpheresController
     {
         public static Views.Spheres.Edit Edit()

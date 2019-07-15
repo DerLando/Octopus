@@ -13,21 +13,11 @@ using Rhino;
 
 namespace Octopus.UI.Views.Spheres
 {
-    public class Edit : Eto.Forms.Panel
+    public class Edit : EditBase<SphereData>
     {
-        private List<SphereData> _data = new List<SphereData>();
-
         // controls to add
         private Label lbl_Radius = new Label() { Text = "Radius", VerticalAlignment = VerticalAlignment.Center };
         private TextBox tB_Radius = new TextBox();
-        private Button btn_Update = new Button() { Text = "Update" };
-
-        public void SetData(IEnumerable<SphereData> data)
-        {
-            _data = data.ToList();
-            InitializeControls();
-            Invalidate();
-        }
 
         public Edit()
         {
@@ -47,7 +37,7 @@ namespace Octopus.UI.Views.Spheres
             Content = layout;
         }
 
-        public void InitializeControls()
+        public override void InitializeControls()
         {
             if (_data.Count == 0) return;
             if (_data.Count == 1 | SpheresController.AreSpheresRadiiEqual(_data))
@@ -59,7 +49,7 @@ namespace Octopus.UI.Views.Spheres
             tB_Radius.Text = "";
         }
 
-        private void Update_Clicked(object sender, EventArgs e)
+        internal override void Update_Clicked(object sender, EventArgs e)
         {
             if (double.TryParse(tB_Radius.Text, NumberStyles.Any, CultureInfo.CurrentCulture, out var radius))
             {

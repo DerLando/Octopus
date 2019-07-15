@@ -57,15 +57,21 @@
     <Compile Include="Commands\OcCreateRectangle.cs" />
     <Compile Include="Commands\OcCreateSphere.cs" />
     <Compile Include="Core\Data\DataBase.cs" />
+    <Compile Include="Core\Data\RectangleData.cs" />
     <Compile Include="Core\Data\SphereData.cs" />
     <Compile Include="Core\Objects\ObjectBase.cs" />
+    <Compile Include="Core\Objects\RectangleObject.cs" />
     <Compile Include="Core\Objects\SphereObject.cs" />
     <Compile Include="OctopusCommand.cs" />
     <Compile Include="OctopusPlugIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Controllers\RectanglesController.cs" />
     <Compile Include="UI\Controllers\SpheresController.cs" />
+    <Compile Include="UI\Views\EditBase.cs" />
+    <Compile Include="UI\Views\Rectangles\Edit.cs" />
+    <Compile Include="UI\Views\RectangleObjectPropertiesPage.cs" />
     <Compile Include="UI\Views\Spheres\Edit.cs" />
-    <Compile Include="UI\Views\ObjectPropertiesPage.cs" />
+    <Compile Include="UI\Views\SphereObjectPropertiesPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EmbeddedResources\plugin-utility.ico" />

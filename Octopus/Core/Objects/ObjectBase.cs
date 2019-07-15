@@ -9,8 +9,10 @@ using Rhino.Geometry;
 
 namespace Octopus.Core.Objects
 {
-    public abstract class ObjectBase : CustomPointObject
+    public abstract class ObjectBase<T> : CustomPointObject where T:UserData
     {
+        public T Data => Attributes.UserData.Find(typeof(T)) as T;
+
         protected ObjectBase() { }
 
         protected ObjectBase(DataBase data, Point point) : base(point)

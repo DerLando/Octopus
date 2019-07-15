@@ -10,8 +10,8 @@ namespace Octopus.Core.Data
 {
     public class SphereData : DataBase
     {
-        public Plane Plane { get; set; } = Plane.WorldXY;
         public double Radius { get; set; } = 1;
+
         public Sphere Sphere { get; set; } = new Sphere(Plane.WorldXY, 1);
 
         #region Constructors
@@ -43,7 +43,7 @@ namespace Octopus.Core.Data
             Sphere = new Sphere(Plane, Radius);
         }
 
-        public void Update()
+        public override void Update()
         {
             UpdateSphere();
         }
