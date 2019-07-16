@@ -42,7 +42,7 @@ namespace Octopus.UI.Views.Spheres
             if (_data.Count == 0) return;
             if (_data.Count == 1 | SpheresController.AreSpheresRadiiEqual(_data))
             {
-                tB_Radius.Text = _data.FirstOrDefault().Radius.ToString(CultureInfo.CurrentCulture);
+                tB_Radius.Text = _data[0].Radius.ToString(CultureInfo.CurrentCulture);
                 return;
             }
 
@@ -51,6 +51,8 @@ namespace Octopus.UI.Views.Spheres
 
         internal override void Update_Clicked(object sender, EventArgs e)
         {
+            RhinoDoc doc = RhinoDoc.ActiveDoc;
+
             if (double.TryParse(tB_Radius.Text, NumberStyles.Any, CultureInfo.CurrentCulture, out var radius))
             {
                 foreach (var sphereData in _data)
@@ -60,7 +62,7 @@ namespace Octopus.UI.Views.Spheres
                 }
             }
 
-            RhinoDoc.ActiveDoc.Views.Redraw();
+            doc.Views.Redraw();
         }
 
     }

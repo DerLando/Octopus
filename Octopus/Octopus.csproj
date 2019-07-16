@@ -59,6 +59,7 @@
     <Compile Include="Core\Data\DataBase.cs" />
     <Compile Include="Core\Data\RectangleData.cs" />
     <Compile Include="Core\Data\SphereData.cs" />
+    <Compile Include="Core\Objects\BrepObjectBase.cs" />
     <Compile Include="Core\Objects\ObjectBase.cs" />
     <Compile Include="Core\Objects\RectangleObject.cs" />
     <Compile Include="Core\Objects\SphereObject.cs" />
@@ -76,9 +77,7 @@
   <ItemGroup>
     <EmbeddedResource Include="EmbeddedResources\plugin-utility.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

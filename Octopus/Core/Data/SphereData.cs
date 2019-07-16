@@ -35,7 +35,7 @@ namespace Octopus.Core.Data
         /// <returns>new instance of SphereObject</returns>
         public SphereObject CreateCustomObject()
         {
-            return new SphereObject(this, new Point(Plane.Origin));
+            return new SphereObject(this, Sphere.ToBrep());
         }
 
         private void UpdateSphere()
@@ -46,6 +46,7 @@ namespace Octopus.Core.Data
         public override void Update()
         {
             UpdateSphere();
+            base.Update();
         }
     }
 }

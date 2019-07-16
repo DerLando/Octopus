@@ -12,6 +12,18 @@ namespace Octopus.Core.Data
     {
         public Plane Plane { get; set; } = Plane.WorldXY;
 
-        public abstract void Update();
+        public virtual void Update()
+        {
+            OnUpdated(new EventArgs());
+        }
+
+        public event EventHandler Updated;
+
+        internal void OnUpdated(EventArgs e)
+        {
+            EventHandler handler = Updated;
+            handler?.Invoke(this, e);
+        }
+
     }
 }
