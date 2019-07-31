@@ -15,6 +15,8 @@ namespace Octopus.Core.Data
 
         public Rectangle3d Rectangle { get; set; } = new Rectangle3d(Plane.WorldXY, 1, 1);
 
+        public double Area => Width * Height;
+
         public RectangleData() { }
 
         public RectangleData(Plane plane, double width, double height)
@@ -23,7 +25,7 @@ namespace Octopus.Core.Data
             Width = width;
             Height = height;
 
-            UpdateRectangle();
+            Update();
         }
 
         public RectangleObject CreateCustomObject()
@@ -31,14 +33,15 @@ namespace Octopus.Core.Data
             return new RectangleObject(this, new Point(Plane.Origin));
         }
 
-        private void UpdateRectangle()
+        internal override void UpdateAnnotations()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void UpdateGeometry()
         {
             Rectangle = new Rectangle3d(Plane, Width, Height);
         }
 
-        public override void Update()
-        {
-            UpdateRectangle();
-        }
     }
 }

@@ -56,9 +56,13 @@
     <Compile Include="Commands\OcCreateBox.cs" />
     <Compile Include="Commands\OcCreateRectangle.cs" />
     <Compile Include="Commands\OcCreateSphere.cs" />
+    <Compile Include="Core\Data\BoxData.cs" />
     <Compile Include="Core\Data\DataBase.cs" />
     <Compile Include="Core\Data\RectangleData.cs" />
     <Compile Include="Core\Data\SphereData.cs" />
+    <Compile Include="Core\Grips\RectangleGrip.cs" />
+    <Compile Include="Core\Grips\RectangleGrips.cs" />
+    <Compile Include="Core\Objects\BoxObject.cs" />
     <Compile Include="Core\Objects\BrepObjectBase.cs" />
     <Compile Include="Core\Objects\ObjectBase.cs" />
     <Compile Include="Core\Objects\RectangleObject.cs" />

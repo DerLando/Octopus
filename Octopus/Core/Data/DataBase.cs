@@ -12,8 +12,16 @@ namespace Octopus.Core.Data
     {
         public Plane Plane { get; set; } = Plane.WorldXY;
 
+        // Annotations for selected Display
+        public AnnotationBase[] Annotations { get; set; }
+
+        internal abstract void UpdateAnnotations();
+        internal abstract void UpdateGeometry();
+
         public virtual void Update()
         {
+            UpdateGeometry();
+            UpdateAnnotations();
             OnUpdated(new EventArgs());
         }
 

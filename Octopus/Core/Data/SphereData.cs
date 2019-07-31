@@ -14,6 +14,8 @@ namespace Octopus.Core.Data
 
         public Sphere Sphere { get; set; } = new Sphere(Plane.WorldXY, 1);
 
+        public double Volume => (4.0 / 3.0) * Math.PI * Math.Pow(Radius, 3);
+
         #region Constructors
 
         public SphereData() { }
@@ -24,7 +26,7 @@ namespace Octopus.Core.Data
             Radius = radius;
 
             // Update Sphere
-            UpdateSphere();
+            Update();
         }
 
         #endregion
@@ -38,15 +40,24 @@ namespace Octopus.Core.Data
             return new SphereObject(this, Sphere.ToBrep());
         }
 
-        private void UpdateSphere()
+
+        internal override void UpdateAnnotations()
         {
-            Sphere = new Sphere(Plane, Radius);
+            if(Annotations is null) Annotations = new AnnotationBase[1];
+
+            var dim = new LinearDimension();
+            dim.Plane = Plane;
+            dim.Prefix = "Radius ";
+            dim.DimensionLinePoint = new Point2d(0, 0);
+            dim.ExtensionLine1End = new Point2d(0, 0);
+            dim.ExtensionLine2End = new Point2d(Radius, 0);
+
+            Annotations[0] = dim;
         }
 
-        public override void Update()
+        internal override void UpdateGeometry()
         {
-            UpdateSphere();
-            base.Update();
+            Sphere = new Sphere(Plane, Radius);
         }
     }
 }
