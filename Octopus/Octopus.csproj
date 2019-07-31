@@ -58,6 +58,7 @@
     <Compile Include="Commands\OcCreateSphere.cs" />
     <Compile Include="Core\Data\BoxData.cs" />
     <Compile Include="Core\Data\DataBase.cs" />
+    <Compile Include="Core\Data\OcMath.cs" />
     <Compile Include="Core\Data\RectangleData.cs" />
     <Compile Include="Core\Data\SphereData.cs" />
     <Compile Include="Core\Grips\RectangleGrip.cs" />

@@ -14,7 +14,7 @@ namespace Octopus.Core.Data
 
         public Sphere Sphere { get; set; } = new Sphere(Plane.WorldXY, 1);
 
-        public double Volume => (4.0 / 3.0) * Math.PI * Math.Pow(Radius, 3);
+        public double Volume => OcMath.VolumeFromRadius(Radius);
 
         #region Constructors
 
