@@ -20,6 +20,12 @@ namespace Octopus.Core.Objects
         {
             var data = Data;
             e.Display.DrawCurve(data.Rectangle.ToNurbsCurve(), Color.Red);
+
+            foreach (var dataAnnotation in data.Annotations)
+            {
+                e.Display.DrawAnnotation(dataAnnotation, Color.Blue);
+            }
+
             base.OnDraw(e);
         }
     }

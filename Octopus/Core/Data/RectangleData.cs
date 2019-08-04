@@ -10,8 +10,8 @@ namespace Octopus.Core.Data
 {
     public class RectangleData : DataBase
     {
-        public double Width { get; set; } = 1;
-        public double Height { get; set; } = 1;
+        public double Width { get; set; } = 1; // X
+        public double Height { get; set; } = 1; // Y
 
         public Rectangle3d Rectangle { get; set; } = new Rectangle3d(Plane.WorldXY, 1, 1);
 
@@ -35,7 +35,24 @@ namespace Octopus.Core.Data
 
         internal override void UpdateAnnotations()
         {
-            throw new NotImplementedException();
+            Annotations = new AnnotationBase[2];
+
+            var widthDim = new LinearDimension();
+            widthDim.Plane = Plane;
+            widthDim.Prefix = "Width ";
+            widthDim.DimensionLinePoint = new Point2d(0, -Settings.AnnotationOffset);
+            widthDim.ExtensionLine1End = new Point2d(0, 0);
+            widthDim.ExtensionLine2End = new Point2d(Width, 0);
+            Annotations[0] = widthDim;
+
+            var heightDim = new LinearDimension();
+            heightDim.Plane = new Plane(Plane.Origin, Plane.YAxis, -Plane.XAxis);
+            heightDim.Prefix = "Height ";
+            heightDim.DimensionLinePoint = new Point2d(0, -Width - Settings.AnnotationOffset);
+            heightDim.ExtensionLine1End = new Point2d(0, -Width);
+            heightDim.ExtensionLine2End = new Point2d(Height, -Width);
+            Annotations[1] = heightDim;
+
         }
 
         internal override void UpdateGeometry()
