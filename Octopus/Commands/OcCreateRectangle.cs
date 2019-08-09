@@ -47,7 +47,7 @@ namespace Octopus.Commands
             var rectangleObject = data.CreateCustomObject();
 
             // add sphereObject to doc
-            doc.Objects.AddRhinoObject(rectangleObject);
+            doc.Objects.AddRhinoObject(rectangleObject, rectangleObject.CurveGeometry);
 
             //redraw views
             doc.Views.Redraw();

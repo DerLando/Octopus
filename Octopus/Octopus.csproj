@@ -65,8 +65,9 @@
     <Compile Include="Core\Grips\RectangleGrip.cs" />
     <Compile Include="Core\Grips\RectangleGrips.cs" />
     <Compile Include="Core\Objects\BoxObject.cs" />
+    <Compile Include="Core\Objects\CurveObjectBase.cs" />
     <Compile Include="Core\Objects\BrepObjectBase.cs" />
-    <Compile Include="Core\Objects\ObjectBase.cs" />
+    <Compile Include="Core\Objects\PointObjectBase.cs" />
     <Compile Include="Core\Objects\RectangleObject.cs" />
     <Compile Include="Core\Objects\SphereObject.cs" />
     <Compile Include="OctopusCommand.cs" />

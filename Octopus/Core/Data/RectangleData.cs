@@ -34,7 +34,7 @@ namespace Octopus.Core.Data
 
         public RectangleObject CreateCustomObject()
         {
-            return new RectangleObject(this, new Point(Plane.Origin));
+            return new RectangleObject(this, this.Rectangle.ToPolyline().ToPolylineCurve());
         }
 
         internal override void UpdateAnnotations()
