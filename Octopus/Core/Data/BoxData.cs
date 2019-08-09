@@ -32,7 +32,31 @@ namespace Octopus.Core.Data
 
         internal override void UpdateAnnotations()
         {
-            throw new NotImplementedException();
+            Annotations = new AnnotationBase[3];
+
+            var lengthDim = new LinearDimension();
+            lengthDim.Plane = Plane;
+            lengthDim.Prefix = "Length ";
+            lengthDim.DimensionLinePoint = new Point2d(0, -Settings.AnnotationOffset);
+            lengthDim.ExtensionLine1End = new Point2d(0, 0);
+            lengthDim.ExtensionLine2End = new Point2d(Length, 0);
+            Annotations[0] = lengthDim;
+
+            var widthDim = new LinearDimension();
+            widthDim.Plane = new Plane(Plane.Origin, Plane.YAxis, -Plane.XAxis);
+            widthDim.Prefix = "Width ";
+            widthDim.DimensionLinePoint = new Point2d(0, Settings.AnnotationOffset);
+            widthDim.ExtensionLine1End = new Point2d(0, 0);
+            widthDim.ExtensionLine2End = new Point2d(Width, 0);
+            Annotations[1] = widthDim;
+
+            var heightDim = new LinearDimension();
+            heightDim.Plane = new Plane(Plane.Origin, Vector3d.CrossProduct(Plane.XAxis, Plane.YAxis), Plane.XAxis);
+            heightDim.Prefix = "Height ";
+            heightDim.DimensionLinePoint = new Point2d(0, Settings.AnnotationOffset);
+            heightDim.ExtensionLine1End = new Point2d(0, 0);
+            heightDim.ExtensionLine2End = new Point2d(Height, 0);
+            Annotations[2] = heightDim;
         }
 
         internal override void UpdateGeometry()
