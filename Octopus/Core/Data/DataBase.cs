@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Octopus.Core.Calculations;
 using Rhino.Collections;
 using Rhino.DocObjects.Custom;
 using Rhino.FileIO;
@@ -15,6 +16,7 @@ namespace Octopus.Core.Data
     public abstract class DataBase : UserData
     {
         public Plane Plane { get; set; } = Plane.WorldXY;
+        public CalculationBase Calculation { get; set; }
 
         // Annotations for selected Display
         public AnnotationBase[] Annotations { get; set; }

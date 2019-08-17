@@ -39,6 +39,7 @@ namespace Octopus
         {
             pages.Add(new SphereObjectPropertiesPage());
             pages.Add(new RectangleObjectPropertiesPage());
+            pages.Add(new CurveObjectPropertiesPage());
         }
 
         protected override LoadReturnCode OnLoad(ref string errorMessage)
